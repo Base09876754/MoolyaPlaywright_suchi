@@ -1,7 +1,11 @@
 import{test,expect} from '@playwright/test'
+import { before } from 'node:test';
 
 
 test.describe('Rahul Shetty Practice Login Tests', () => {
+    test.beforeAll(async()=>{
+        console.log('Befor All test')
+    })
   
       test.beforeEach(async ({ page }) => {
         console.log('Navigating to the login page');
@@ -47,3 +51,4 @@ test.describe('Rahul Shetty Practice Login Tests', () => {
             await expect(infoText).not.toContainText('Error');
           });
     });
+    // https://github.com/Base09876754/MoolyaPlaywright_suchi/tree/main/Section4
