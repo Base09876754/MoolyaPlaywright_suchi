@@ -12,7 +12,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
 
   // Step 3: Scroll and wait for article count to increase
   await page.mouse.wheel(0, 3000);
-  console.log('⬇️ Scrolling down...');
+  console.log('Scrolling down...');
 
   await page.waitForFunction(
     (oldCount) => {
@@ -21,7 +21,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
     initialCount, // arg to function
     { timeout: 10000 }
   );
-  console.log('✅ More articles loaded');
+  console.log('More articles loaded');
 
   // Step 4: Get new count and validate
   const newCount = await articlesLocator.count();
@@ -32,7 +32,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
   const newArticle = articlesLocator.nth(initialCount); // first *new* one
   await expect(newArticle).toBeVisible();
   const heading = await newArticle.locator('xpath=.//h2').textContent()
-  // console.log(`📰 New article title: ${title?.trim()}`);
+  // console.log(`New article title: ${title?.trim()}`);
 });
 
 
