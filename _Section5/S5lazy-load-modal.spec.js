@@ -25,7 +25,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
 
   // Step 4: Get new count and validate
   const newCount = await articlesLocator.count();
-  // console.log(`🆕 New article count: ${newCount}`);
+
   await expect(newCount).toBeGreaterThan(initialCount);
 
   // Step 5: Act on the first new article (e.g. title)
