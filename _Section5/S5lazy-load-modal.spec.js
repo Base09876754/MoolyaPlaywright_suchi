@@ -8,7 +8,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
   const articlesLocator = page.locator('//article');
   await expect(articlesLocator.first()).toBeVisible();
   const initialCount = await articlesLocator.count();
-  console.log(`🧾 Initial article count: ${initialCount}`);
+  console.log(`Initial article count: ${initialCount}`);
 
   // Step 3: Scroll and wait for article count to increase
   await page.mouse.wheel(0, 3000);
@@ -32,7 +32,7 @@ test('Scroll, wait for lazy content, and act on new article', async ({ page }) =
   const newArticle = articlesLocator.nth(initialCount); // first *new* one
   await expect(newArticle).toBeVisible();
   const heading = await newArticle.locator('xpath=.//h2').textContent()
-  // console.log(`New article title: ${title?.trim()}`);
+  console.log(`New article title: ${title?.trim()}`);
 });
 
 
